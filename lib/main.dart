@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends ConsumerWidget {
   const MyHomePage({super.key, required this.title});
 
   // This widget is the home page of your application. It is stateful, meaning
@@ -50,7 +50,19 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final name = ref.watch(nameProvider);
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Riverpod Provider"),
+      ),
+      body: Center(child: Text(name)),
+    );
+
+    // ignore: todo
+    // TODO: implement build
+  }
 }
 
 class _MyHomePageState extends State<MyHomePage> {
