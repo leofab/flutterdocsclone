@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:flutterdocsclone/colors.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -11,9 +10,19 @@ class LoginScreen extends StatelessWidget {
       body: Center(
         child: ElevatedButton.icon(
           onPressed: () {},
-          icon: Image.asset('assets/images/g-logo-2.png'),
+          icon: Image.asset(
+            'assets/images/g-logo-2.png',
+            height: 20,
+          ),
           label: const Text(
             'Sign in with Google',
+            style: TextStyle(
+              color: kBlackColor,
+            ),
+          ),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: kWhiteColor,
+            minimumSize: const Size(150, 50),
           ),
         ),
       ),
