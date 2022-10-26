@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutterdocsclone/colors.dart';
+import 'package:flutterdocsclone/repository/auth_repository.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends ConsumerWidget {
   const LoginScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.watch(authRepositoryProvider).signInWithGoogle();
     return Scaffold(
       body: Center(
         child: ElevatedButton.icon(
